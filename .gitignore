@@ -1,0 +1,5 @@
+# Ignorar todos os arquivos .csv dentro de storage e suas subpastas
+storage/**/*.csv
+
+# Ignorar o conteúdo da pasta de logs (mantendo a pasta, se desejar)
+logs/*.log
