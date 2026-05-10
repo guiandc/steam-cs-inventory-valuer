@@ -10,25 +10,24 @@ O projeto foca em modularidade, utilizando bibliotecas robustas de análise de d
 ## 🚀 Funcionalidades
 *   **Consulta de Inventário:** Integração com a API pública da Steam para listagem de itens.
 *   **Valoração em Tempo Real:** Busca preços atualizados no Mercado da Comunidade Steam.
-*   **Análise de Dados:** Utiliza Pandas e Numpy para processamento eficiente das informações coletadas.
 *   **Internacionalização:** Suporte a diferentes moedas e idiomas via arquivo de configuração.
 *   **Gestão de Logs:** Sistema de rastreamento com rotação diária para monitoramento de execução.
-*   **Sistema de Arquivos Automático:** Criação dinâmica de diretórios para logs e armazenamento via utilitários dedicados (utils).
+*   **Sistema de Arquivos Automático:** Criação dinâmica de diretórios para logs e armazenamento.
 
 ## 🛠️ Tecnologias
 *   **Python 3.x**
-*   **Pandas & Numpy:** Para manipulação e análise de dados.
 *   **Requests:** Para comunicação com as APIs da Steam.
 *   **Logging:** Para diagnóstico e histórico de operações.
 
 ## 📂 Estrutura do Projeto
 *   `main.py`: Ponto de entrada que coordena a execução do script.
 *   `config.py`: Centraliza variáveis de ambiente como `STEAM_ID`, `CURRENCY` e `LANGUAGE`.
-*   `utils.py`: Funções utilitárias (ex: abstração de criação de diretórios).
-*   `func_log.py`: Configuração e inicialização do sistema de logs em UTF-8.
+*   `utils.py`: Funções utilitárias.
+*   `functions_log.py`: Configuração e inicialização do sistema de logs em UTF-8.
+*   `functions_steam.py`: Funções relacionadas à API da steam.
 *   `requirements.txt`: Gerenciador de dependências do projeto.
-*   `logs/`: Armazenamento de registros de execução (ignorado pelo Git).
-*   `storage/`: Destino de arquivos CSV e backups (ignorado pelo Git).
+*   `logs/`: Armazenamento de registros de execução.
+*   `storage/`: Destino de arquivos CSV e backups.
 
 ## 🔧 Instalação e Uso
 
