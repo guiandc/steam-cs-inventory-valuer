@@ -17,7 +17,7 @@ def getSteamInventory(steam_id):
     
     # Parâmetros da requisição
     params = {
-        'l': 'portuguese',
+        'l': config.language,
         'count': config.max_inventory_items 
     }
 
@@ -48,8 +48,8 @@ def getItemPrice(item):
     
     # O requests vai codificar o market_hash_name automaticamente na URL
     query_params = {
-        'country': 'BR',
-        'currency': 7,
+        'country': config.country,
+        'currency': config.currency,
         'appid': 730,
         'market_hash_name': item
     }

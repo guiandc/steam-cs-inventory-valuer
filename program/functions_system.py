@@ -12,27 +12,21 @@ import functions_steam as func_steam
 #=======================================================
 def start_environment():
     func_log.logging.info("Iniciando ambiente.")
-    verifyAndCreateFolderStorage()
-    verifyAndCreateFolderBackup()
-    verifyAndCreateFolderLog() 
+    verifyAndCreateFolder(config.folder_storage)
+    verifyAndCreateFolder(config.folder_backup)
+    verifyAndCreateFolder(config.folder_logs)
     func_log.logging.info("Inicialização finalizada.")
 
-def verifyAndCreateFolderStorage():
-    if not os.path.exists(config.folder_storage):
-        os.makedirs(config.folder_storage)
-
-def verifyAndCreateFolderBackup():
-    if not os.path.exists(config.folder_backup):
-        os.makedirs(config.folder_backup)  
-
-def verifyAndCreateFolderLog():
-    if not os.path.exists(config.folder_logs):
-        os.makedirs(config.folder_logs)  
+def verifyAndCreateFolder(path):
+    if not os.path.exists(path):
+        os.makedirs(path)
 
 #=======================================================
 #FUNÇÕES QUE ADMINISTRAM E CRIAM ARQUIVOS DE INFORMAÇÃO
 #=======================================================
 def moveFile(file_name, curr_path, dest_path):
+    verifyAndCreateFolder(curr_path)
+    verifyAndCreateFolder(dest_path)
     list_files = os.listdir(curr_path)
     for file in list_files:
         if file.startswith(file_name.split('_')[0]):
@@ -43,6 +37,7 @@ def moveFile(file_name, curr_path, dest_path):
         
 
 def writeFile(database, dest_path, file_name):
+    verifyAndCreateFolder(dest_path)
     df = pd.DataFrame(database)    
     df.to_csv(f"{dest_path}/{file_name}", index=False, sep=';', encoding='utf-8-sig')    
     func_log.logging.info(f"Arquivo criado com sucesso. Diretório: {dest_path}/{file_name}")
